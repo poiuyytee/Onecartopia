@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watches</title>
+    <style>
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-card button {
+            padding: 10px 20px;
+            background-color: #734848;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .product-card button {
+            padding: 10px 20px;
+            background-color: #734848;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 20px;
+        }
+    </style>
+    <script>
+        function addToCart(productName, price, quantity) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ productName, price, quantity });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(quantity + ' ' + productName + '(s) have been added to the cart.');
+        }
+
+        function buyNow(productName, price, quantity) {
+            alert('You are about to buy ' + quantity + ' ' + productName + '(s) for INR ' + (price * quantity) + '.'); // You can add further logic for buying now
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+
+    <header style="text-align: center; 
+                   padding: 20px;
+                   background-image: url('wallpaper.jpg'); 
+                   color: rgb(0, 0, 0);
+                   font-family: 'Lucida Handwriting', 'Cursive';">
+        <h1>Watches</h1>
+    </header>
+
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 999;">
+        <a href="cart.html" style="text-decoration: none;">
+        <button style="padding: 10px 20px; background-color: #8c6565; color: white; border: none; border-radius: 3px; cursor: pointer;">
+            
+            <img src="images\shopping-cart.png" alt="Cart" style="width: 20px; margin-right: 5px;">
+            Cart
+        </button>
+    </a>
+    </div>
+
+    <main style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px;">
+        <div class="product-card">
+            <h2>Set of 3 Watches</h2>
+            <img src="images\watches\w1.jpg" alt="Set of 3 Watches">
+            <p>Price: ₹15000</p>
+            <input type="number" id="quantity3" value="1" min="1">
+            <button onclick="addToCart('Set of 3 Watches', 15000, document.getElementById('quantity3').value)">Add to Cart</button>
+            <button onclick="buyNow('Set of 3 Watches', 15000, document.getElementById('quantity3').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Brown Watch Square dial</h2>
+            <img src="images\watches\w2.jpg" alt="Brown Watch Square dial">
+            <p>Price: ₹2000</p>
+            <input type="number" id="quantity4" value="1" min="1">
+            <button onclick="addToCart('Brown Watch Square dial', 2000, document.getElementById('quantity4').value)">Add to Cart</button>
+            <button onclick="buyNow('Brown Watch Square dial', 2000, document.getElementById('quantity4').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Metal strap Watch</h2>
+            <img src="images\watches\w3.jpg" alt="Metal strap Watch">
+            <p>Price: ₹1500</p>
+            <input type="number" id="quantity3" value="1" min="1">
+            <button onclick="addToCart('Metal strap Watch', 1500, document.getElementById('quantity3').value)">Add to Cart</button>
+            <button onclick="buyNow('Metal strap Watch', 1500, document.getElementById('quantity3').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Quartz watch brown</h2>
+            <img src="images\watches\w4.jpg" alt="Quartz watch brown">
+            <p>Price: ₹2000</p>
+            <input type="number" id="quantity4" value="1" min="1">
+            <button onclick="addToCart('Quartz watch brown', 2000, document.getElementById('quantity4').value)">Add to Cart</button>
+            <button onclick="buyNow('Quartz watch brown', 2000, document.getElementById('quantity4').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Rolex Mens Watch</h2>
+            <img src="images\watches\w5.jpg" alt="Rolex Mens Watch">
+            <p>Price: ₹15000</p>
+            <input type="number" id="quantity3" value="1" min="1">
+            <button onclick="addToCart('Rolex Mens Watch', 15000, document.getElementById('quantity3').value)">Add to Cart</button>
+            <button onclick="buyNow('Rolex Mens Watch', 15000, document.getElementById('quantity3').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Tomi Womens watch</h2>
+            <img src="images\watches\w6.jpg" alt="Tomi Womens watch">
+            <p>Price: ₹2000</p>
+            <input type="number" id="quantity4" value="1" min="1">
+            <button onclick="addToCart('Tomi Womens watch', 2000, document.getElementById('quantity4').value)">Add to Cart</button>
+            <button onclick="buyNow('Tomi Womens watch', 2000, document.getElementById('quantity4').value)">Buy Now</button>
+        </div>
+
+        
+        <div class="product-card">
+            <h2>Womens Brown Watch</h2>
+            <img src="images\watches\w7.jpg" alt="Womens Brown Watch">
+            <p>Price: ₹2000</p>
+            <input type="number" id="quantity4" value="1" min="1">
+            <button onclick="addToCart('Womens Brown Watch', 2000, document.getElementById('quantity4').value)">Add to Cart</button>
+            <button onclick="buyNow('Womens Brown Watch', 2000, document.getElementById('quantity4').value)">Buy Now</button>
+        </div>
+    </main>
+
+    <button class="back-button" onclick="goBack()">Back to Shopping</button>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing</title>
+    <style>
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .product-card button {
+            padding: 10px 20px;
+            background-color: #734848;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            background-color:#734848;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 20px;
+        }
+    </style>
+    <script>
+        function addToCart(productName, price, quantity) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ productName, price, quantity });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(quantity + ' ' + productName + '(s) have been added to the cart.');
+        }
+
+        function buyNow(productName, price, quantity) {
+            alert('You are about to buy ' + quantity + ' ' + productName + '(s) for INR ' + (price * quantity) + '.'); // You can add further logic for buying now
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+    <header style="text-align: center; 
+                    padding: 20px;
+                    background-image: url('wallpaper.jpg'); 
+                    color: rgb(0, 0, 0);
+                    font-family: 'Lucida Handwriting', 'Cursive';">
+        <h1>Clothing</h1>
+    </header>
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 999;">
+        <a href="cart.html" style="text-decoration: none;">
+        <button style="padding: 10px 20px; background-color: #8c6565; color: white; border: none; border-radius: 3px; cursor: pointer;">
+            
+            <img src="images\shopping-cart.png" alt="Cart" style="width: 20px; margin-right: 5px;">
+            Cart
+        </button>
+    </a>
+    </div>
+
+    <main style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px;">
+        <div class="product-card">
+            <h2>Vintage Suit Vest outfit</h2>
+            <img src="images\clothing\c1.jpg" alt="Vintage Suit Vest outfit">    
+            <p>Price: ₹5000</p>
+            <input type="number" id="quantity1" value="1" min="1">
+            <button onclick="addToCart('Vintage Suit Vest outfit', 5000, document.getElementById('quantity1').value)">Add to Cart</button>
+            <button onclick="buyNow('Vintage Suit Vest outfit', 5000, document.getElementById('quantity1').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Brown Suit Vest outfit</h2>
+            <img src="images\clothing\c2.jpg" alt="Brown Suit Vest outfit">
+            <p>Price: ₹7000</p>
+            <input type="number" id="quantity2" value="1" min="1">
+            <button onclick="addToCart('Brown Suit Vest outfit', 7000, document.getElementById('quantity2').value)">Add to Cart</button>
+            <button onclick="buyNow('Brown Suit Vest outfit', 7000, document.getElementById('quantity2').value)">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <h2>Short Skirt with Turtle Neck Shirt and Blazer</h2>
+            <img src="images\clothing\c3.jpg" alt="Short Skirt with Turtle Neck Shirt and Blazer">    
+            <p>Price: ₹6000</p>
+            <input type="number" id="quantity1" value="1" min="1">
+            <button onclick="addToCart('Short Skirt with Turtle Neck Shirt and Blazer', 6000, document.getElementById('quantity1').value)">Add to Cart</button>
+            <button onclick="buyNow('Short Skirt with Turtle Neck Shirt and Blazer', 6000, document.getElementById('quantity1').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Brown Dream Gown</h2>
+            <img src="images\clothing\c4.jpg" alt="Brown Dream Gown">
+            <p>Price: ₹10000</p>
+            <input type="number" id="quantity2" value="1" min="1">
+            <button onclick="addToCart('Brown Dream Gown', 10000, document.getElementById('quantity2').value)">Add to Cart</button>
+            <button onclick="buyNow('Brown Dream Gown', 10000, document.getElementById('quantity2').value)">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <h2>Cardigan</h2>
+            <img src="images\clothing\c5.jpg" alt="Cardigan">    
+            <p>Price: ₹999</p>
+            <input type="number" id="quantity1" value="1" min="1">
+            <button onclick="addToCart('Cardigan', 999, document.getElementById('quantity1').value)">Add to Cart</button>
+            <button onclick="buyNow('Cardigan', 999, document.getElementById('quantity1').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Vintage outfit with checks trouser and vest</h2>
+            <img src="images\clothing\c6.jpg" alt="Vintage outfit with checks trouser and vest">
+            <p>Price: ₹7000</p>
+            <input type="number" id="quantity2" value="1" min="1">
+            <button onclick="addToCart('Vintage outfit with checks trouser and vest', 7000, document.getElementById('quantity2').value)">Add to Cart</button>
+            <button onclick="buyNow('Vintage outfit with checks trouser and vest', 7000, document.getElementById('quantity2').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Biege and Brown Hoodie with small purse</h2>
+            <img src="images\clothing\c7.jpg" alt="Biege and Brown Hoodie with small purse">
+            <p>Price: ₹700</p>
+            <input type="number" id="quantity2" value="1" min="1">
+            <button onclick="addToCart('Biege and Brown Hoodie with small purse', 700, document.getElementById('quantity2').value)">Add to Cart</button>
+            <button onclick="buyNow('Biege and Brown Hoodie with small purse', 700, document.getElementById('quantity2').value)">Buy Now</button>
+        </div>
+    </main>
+    <a href="home.html">
+        <button class="back-button" onclick="goBack()">Back to Shopping</button>
+    </a>
+</body>
+</html>

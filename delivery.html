@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Details</title>
+    <style>
+        .form-container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            margin: 10px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .form-container button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function loadTotalAmount() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = 0;
+
+            cart.forEach(item => {
+                total += item.price;
+            });
+
+            document.getElementById('total-amount').innerText = 'Total Amount: ₹' + total;
+        }
+
+        function submitDelivery() {
+            // For now, just navigate to the thank you page.
+            window.location.href = 'thankyou.html';
+        }
+
+        window.onload = loadTotalAmount;
+    </script>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+
+    <header style="text-align: center; padding: 20px; background-color: #333; color: white;">
+        <h1>Delivery Details</h1>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2>Enter Your Delivery Information</h2>
+            <input type="text" placeholder="Name" required>
+            <input type="text" placeholder="Address" required>
+            <input type="text" placeholder="City" required>
+            <input type="text" placeholder="State" required>
+            <input type="text" placeholder="Zip Code" required>
+            <h2 id="total-amount">Total Amount: ₹0</h2>
+            <select>
+                <option value="" disabled selected>Select Payment Method</option>
+                <option value="credit-card">Credit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="cash-on-delivery">Cash on Delivery</option>
+            </select>
+            <button onclick="submitDelivery()">Submit</button>
+        </div>
+    </main>
+
+</body>
+</html>

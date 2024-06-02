@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footwear</title>
+    <style>
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-card button {
+            padding: 10px 20px;
+            background-color: #734848;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .product-card button {
+            padding: 10px 20px;
+            background-color:#734848;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 20px;
+        }
+    </style>
+    <script>
+        function addToCart(productName, price, quantity) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ productName, price, quantity });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(quantity + ' ' + productName + '(s) have been added to the cart.');
+        }
+
+        function buyNow(productName, price, quantity) {
+            alert('You are about to buy ' + quantity + ' ' + productName + '(s) for INR ' + (price * quantity) + '.'); // You can add further logic for buying now
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+
+    <header style="text-align: center; 
+                   padding: 20px;
+                   background-image: url('wallpaper.jpg'); 
+                   color: rgb(0, 0, 0);
+                   font-family: 'Lucida Handwriting', 'Cursive';">
+        <h1>Footwear</h1>
+    </header>
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 999;">
+        <a href="cart.html" style="text-decoration: none;">
+        <button style="padding: 10px 20px; background-color: #8c6565; color: white; border: none; border-radius: 3px; cursor: pointer;">
+            
+            <img src="images\shopping-cart.png" alt="Cart" style="width: 20px; margin-right: 5px;">
+            Cart
+        </button>
+    </a>
+    </div>
+
+    <main style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px;">
+        <div class="product-card">
+            <h2>Brown Boots</h2>
+            <img src="images\fw\f1.jpg" alt=" Brown Boots">   
+            <p>Price: ₹1300</p>
+            <input type="number" id="quantity5" value="1" min="1">
+            <button onclick="addToCart('Brown Boots', 1300, document.getElementById('quantity5').value)">Add to Cart</button>
+            <button onclick="buyNow('Brown Boots', 1300, document.getElementById('quantity5').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Women's Boots</h2>
+            <img src="images\fw\f2.jpg" alt=" Women's Boots">   
+            <p>Price: ₹1500</p>
+            <input type="number" id="quantity6" value="1" min="1">
+            <button onclick="addToCart('Womens Boots', 1500, document.getElementById('quantity6').value)">Add to Cart</button>
+            <button onclick="buyNow('Womens Boots', 1500, document.getElementById('quantity6').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Brown Sneakers</h2>
+            <img src="images\fw\f3.jpg" alt="Brown Sneakers ">   
+            <p>Price: ₹8000</p>
+            <input type="number" id="quantity5" value="1" min="1">
+            <button onclick="addToCart('Brown Sneakers', 8000, document.getElementById('quantity5').value)">Add to Cart</button>
+            <button onclick="buyNow('Brown Sneakers', 8000, document.getElementById('quantity5').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Brown Sandals</h2>
+            <img src="images\fw\f4.jpg" alt="Brown Sandals ">   
+            <p>Price: ₹1200</p>
+            <input type="number" id="quantity6" value="1" min="1">
+            <button onclick="addToCart('Brown Sandals', 1200, document.getElementById('quantity6').value)">Add to Cart</button>
+            <button onclick="buyNow('Brown Sandals', 1200, document.getElementById('quantity6').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Black shoes</h2>
+            <img src="images\fw\f5.jpg" alt="Black shoes ">   
+            <p>Price: ₹8999</p>
+            <input type="number" id="quantity5" value="1" min="1">
+            <button onclick="addToCart('Black shoes', 8999, document.getElementById('quantity5').value)">Add to Cart</button>
+            <button onclick="buyNow('Black shoes', 8999, document.getElementById('quantity5').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Mens Brown Shoes</h2>
+            <img src="images\fw\f6.jpg" alt="Mens Brown Shoes">   
+            <p>Price: ₹1239</p>
+            <input type="number" id="quantity6" value="1" min="1">
+            <button onclick="addToCart('Mens Brown Shoes', 1239, document.getElementById('quantity6').value)">Add to Cart</button>
+            <button onclick="buyNow('Mens Brown Shoes', 1239, document.getElementById('quantity6').value)">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <h2>Sneakers</h2>
+            <img src="images\fw\f7.jpg" alt="Sneakers">   
+            <p>Price: ₹1799</p>
+            <input type="number" id="quantity6" value="1" min="1">
+            <button onclick="addToCart('Sneakers', 1799, document.getElementById('quantity6').value)">Add to Cart</button>
+            <button onclick="buyNow('Sneakers', 1799, document.getElementById('quantity6').value)">Buy Now</button>
+        </div>
+
+
+    </main>
+
+    <button class="back-button" onclick="goBack()">Back to Shopping</button>
+
+</body>
+</html>

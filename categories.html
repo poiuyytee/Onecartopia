@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <style>
+        .category-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .category-card button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 20px;
+        }
+    </style>
+    <script>
+        function addToCart(productName, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ productName, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(productName + ' has been added to the cart.');
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+
+    <header style="text-align: center; padding: 20px; background-color: #333; color: white;">
+        <h1>Product Categories</h1>
+    </header>
+
+    <main style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px;">
+        <div class="category-card">
+            <h2>Clothing</h2>
+            <button onclick="addToCart('Clothing Item 1', 50)">Add Item 1 ($50)</button>
+            <button onclick="addToCart('Clothing Item 2', 70)">Add Item 2 ($70)</button>
+        </div>  
+        
+        <div class="category-card">
+            <h2>Watches</h2>
+            <button onclick="addToCart('Watch Item 1', 150)">Add Item 1 ($150)</button>
+            <button onclick="addToCart('Watch Item 2', 200)">Add Item 2 ($200)</button>
+        </div>
+        
+        <div class="category-card">
+            <h2>Footwear</h2>
+            <button onclick="addToCart('Footwear Item 1', 80)">Add Item 1 ($80)</button>
+            <button onclick="addToCart('Footwear Item 2', 100)">Add Item 2 ($100)</button>
+        </div>
+    </main>
+
+    <button class="back-button" onclick="goBack()">Back to Shopping</button>
+</body>
+</html>
